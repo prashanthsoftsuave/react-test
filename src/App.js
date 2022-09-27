@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          test firebase project github auto deploy
+          test firebase project github auto deploy firebase netlify
         </p>
         <a
           className="App-link"
@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          {process.env.REACT_APP_TEST_API_KEY}
         </a>
       </header>
     </div>
