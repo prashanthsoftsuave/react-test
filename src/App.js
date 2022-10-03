@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          test firebase project github auto deploy firebase netlify
+          welcome
         </p>
         <a
           className="App-link"
