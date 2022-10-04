@@ -39,7 +39,7 @@ function Dashboard() {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Dashboard
+              Dashboard 
             </Typography>
             <Button color="inherit">Login</Button>
           </Toolbar>
