@@ -6,7 +6,7 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import { Route, Routes } from "react-router-dom"
 import Projects from "../Projects";
-
+import Education from "../pages/Education";
 
 import About from "../About/about";
 import { Link } from "react-router-dom";
@@ -56,7 +56,19 @@ function Dashboard() {
             Home{" "}
           </Link>
           {/* <Typography style={{ margin: "0px 20px" }}>Home</Typography> */}
-          <Typography style={{ margin: "0px 20px" }}>Education</Typography>
+          <Link
+            to="/Education"
+            color="inherit"
+            style={{
+              color: !isdark ? "#fff" : "#000",
+              margin: "0px 20px",
+              textDecoration: "none",
+            }}
+          >
+            {" "}
+            Education{" "}
+          </Link>
+
           <Link
             to="/projects"
             color="inherit"
@@ -81,6 +93,7 @@ function Dashboard() {
         <Routes>
         <Route path="/" element={<About />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/Education" element={<Education />} />
       </Routes>
         
       </Box>

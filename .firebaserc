@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "test-e761a"
-  }
+    "default": "myproject-f59ec",
+    "prod": "myproject-f59ec"
+  },
+  "targets": {},
+  "etags": {}
 }
