@@ -6,56 +6,87 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import AppMenu from "../Menubar";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import { styled } from "@mui/material/styles";
-import { Route, Routes } from "react-router-dom";
-import Default from "../pages/Default";
-import Analytics from "../pages/Analytics";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import WbSunnyIcon from "@mui/icons-material/WbSunny";
+import { Route, Routes } from "react-router-dom"
+import Projects from "../Projects";
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
+
+import About from "../About/about";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
+  const [dark, setDark] = React.useState("#202023");
+  const [isdark, setIsDark] = React.useState(false);
+
+  const handledark = () => {
+    setIsDark((prev) => !prev);
+    if (isdark) {
+      setDark("#202023");
+    } else {
+      setDark("#e8eaf6");
+    }
+  };
+
   return (
     <div>
       {" "}
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Dashboard 
-            </Typography>
-            <Button color="inherit">Login</Button>
-          </Toolbar>
-        </AppBar>
-        <Grid container spacing={2}>
-          <Grid item xs={3}>
-            <Item>
-              <AppMenu />
-            </Item>
-          </Grid>
-          <Grid item xs={9}>
-            <Item>
- 
-            </Item>
-          </Grid>
-        </Grid>
+      <Box
+        sx={{
+          flexGrow: 1,
+          background: `${dark}`,
+          height: "100vh",
+          color: !isdark ? "#fff" : "#000",
+        }}
+      >
+        <Box
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "30px 0px 0px 0px",
+          }}
+        >
+          <Link
+            to="/"
+            color="inherit"
+            style={{
+              color: !isdark ? "#fff" : "#000",
+              margin: "0px 20px",
+              textDecoration: "none",
+            }}
+          >
+            {" "}
+            Home{" "}
+          </Link>
+          {/* <Typography style={{ margin: "0px 20px" }}>Home</Typography> */}
+          <Typography style={{ margin: "0px 20px" }}>Education</Typography>
+          <Link
+            to="/projects"
+            color="inherit"
+            style={{
+              color: !isdark ? "#fff" : "#000",
+              margin: "0px 20px",
+              textDecoration: "none",
+            }}
+          >
+            {" "}
+            Projects{" "}
+          </Link>
+
+          <Button
+            color="inherit"
+            onClick={handledark}
+            style={{ position: "absolute", right: 0 }}
+          >
+            {isdark ? <DarkModeIcon /> : <WbSunnyIcon />}
+          </Button>
+        </Box>
+        <Routes>
+        <Route path="/" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+      </Routes>
+        
       </Box>
     </div>
   );
